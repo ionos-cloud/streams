@@ -1,10 +1,17 @@
 package streams
 
-import "github.com/ionos-cloud/streams/msg"
+import (
+	"sync"
+	"time"
+
+	"github.com/ionos-cloud/streams/msg"
+)
 
 // Opts is a set of options for a stream.
 type Opts struct {
-	buffer int
+	buffer   int
+	nodeName string
+	monitor  *Monitor
 }
 
 // Comfigure is a function that configures a stream.
@@ -24,28 +31,64 @@ func WithBuffer(size int) Opt {
 	}
 }
 
+// WithNodeName configures the node name for a stream.
+func WithNodeName(name string) Opt {
+	return func(o *Opts) {
+		o.nodeName = name
+	}
+}
+
+// WithMonitor configures a statistics monitor.
+func WithMonitor(m *Monitor) Opt {
+	return func(o *Opts) {
+		o.monitor = m
+	}
+}
+
 // StreamImpl implements Stream.
-type StreamImpl struct {
-	in    chan msg.Message
-	mark  chan msg.Message
-	close chan bool
-	err   chan error
-	opts  *Opts
+type StreamImpl[K, V any] struct {
+	in      chan msg.Message[K, V]
+	mark    chan msg.Message[K, V]
+	close   chan bool
+	err     chan error
+	metrics *metrics
+	opts    *Opts
+
+	Collector
+}
+
+type metrics struct {
+	latency *latencyMetric
 }
 
 // NewStream from a source of messages.
-func NewStream(src Source, opts ...Opt) *StreamImpl {
+func NewStream[K, V any](src Source[K, V], opts ...Opt) *StreamImpl[K, V] {
 	options := new(Opts)
 	options.Configure(opts...)
 
-	stream := new(StreamImpl)
+	out := make(chan msg.Message[K, V])
+
+	stream := new(StreamImpl[K, V])
 	stream.opts = options
-	stream.mark = make(chan msg.Message)
-	stream.in = src.Messages()
+	stream.mark = make(chan msg.Message[K, V])
+	stream.in = out
+
+	stream.metrics = new(metrics)
+	stream.metrics.latency = newLatencyMetric(stream.opts.nodeName)
+
+	go func() {
+		for x := range src.Messages() {
+			stream.metrics.latency.start()
+
+			out <- x
+		}
+
+		close(out)
+	}()
 
 	go func() {
 		var count int
-		var buf []msg.Message
+		var buf []msg.Message[K, V]
 
 		for m := range stream.mark {
 			if m.Marked() {
@@ -67,10 +110,61 @@ func NewStream(src Source, opts ...Opt) *StreamImpl {
 				return
 			}
 
+			stream.metrics.latency.stop()
+
+			if stream.opts.monitor != nil {
+				stream.opts.monitor.Gather(stream)
+			}
+
 			buf = buf[:0]
 			count = 0
 		}
 	}()
 
 	return stream
+}
+
+type latencyMetric struct {
+	value    float64
+	nodeName string
+
+	now time.Time
+
+	Metric
+	Collector
+
+	sync.Mutex
+}
+
+// Collect is collecting metrics.
+func (m *latencyMetric) Collect(ch chan<- Metric) {
+	ch <- m
+}
+
+// Write is writing metrics to a channel.
+func (m *latencyMetric) Write(monitor *Monitor) error {
+	monitor.SetLatency(m.nodeName, m.value)
+
+	return nil
+}
+
+func (m *latencyMetric) start() {
+	m.Lock()
+	defer m.Unlock()
+
+	m.now = time.Now()
+}
+
+func (m *latencyMetric) stop() {
+	m.Lock()
+	defer m.Unlock()
+
+	m.value = float64(time.Since(m.now).Microseconds())
+}
+
+func newLatencyMetric(nodeName string) *latencyMetric {
+	return &latencyMetric{
+		nodeName: nodeName,
+		now:      time.Now(),
+	}
 }

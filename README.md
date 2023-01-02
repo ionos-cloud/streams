@@ -5,7 +5,7 @@
 [![Taylor Swift](https://img.shields.io/badge/secured%20by-taylor%20swift-brightgreen.svg)](https://twitter.com/SwiftOnSecurity)
 [![Volkswagen](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
 
-A teeny-tiney package to create stream processing workfloads. It is intended to be used with [Apache Kafka](https://kafka.apache.org/).  
+A teeny-tiny package to create stream processing workloads. It is intended to be used with [Apache Kafka](https://kafka.apache.org/).  
 
 ## Get Started
 
@@ -14,3 +14,7 @@ A teeny-tiney package to create stream processing workfloads. It is intended to 
 ## Docs
 
 You can find the documentation hosted on [godoc.org](https://godoc.org/github.com/ionos-cloud/streams).
+
+## License
+
+[Apache 2.0](/LICENSE)
