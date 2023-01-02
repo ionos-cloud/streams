@@ -5,10 +5,10 @@ go 1.19
 require (
 	github.com/golang/mock v1.6.0
 	github.com/golangci/golangci-lint v1.50.1
-	github.com/prometheus/client_golang v1.12.1
+	github.com/prometheus/client_golang v1.14.0
 	github.com/segmentio/kafka-go v0.4.38
-	github.com/stretchr/testify v1.8.1
 	github.com/spf13/cobra v1.6.1
+	github.com/stretchr/testify v1.8.1
 	gotest.tools/gotestsum v1.8.2
 	mvdan.cc/gofumpt v0.4.0
 )
@@ -123,9 +123,9 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/polyfloyd/go-errorlint v1.0.5 // indirect
-	github.com/prometheus/client_model v0.2.0 // indirect
-	github.com/prometheus/common v0.32.1 // indirect
-	github.com/prometheus/procfs v0.7.3 // indirect
+	github.com/prometheus/client_model v0.3.0 // indirect
+	github.com/prometheus/common v0.37.0 // indirect
+	github.com/prometheus/procfs v0.8.0 // indirect
 	github.com/quasilyte/go-ruleguard v0.3.18 // indirect
 	github.com/quasilyte/gogrep v0.0.0-20220828223005-86e4605de09f // indirect
 	github.com/quasilyte/regex/syntax v0.0.0-20200407221936-30656e2c4a95 // indirect
@@ -175,7 +175,7 @@ require (
 	golang.org/x/term v0.0.0-20220526004731-065cf7ba2467 // indirect
 	golang.org/x/text v0.3.8 // indirect
 	golang.org/x/tools v0.2.0 // indirect
-	google.golang.org/protobuf v1.28.0 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
