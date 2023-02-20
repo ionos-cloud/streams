@@ -12,7 +12,7 @@ require (
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
 	github.com/syndtr/goleveldb v1.0.0
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.24.0
 	google.golang.org/protobuf v1.28.1
 	mvdan.cc/gofumpt v0.4.0
 )
