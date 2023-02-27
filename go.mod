@@ -10,7 +10,7 @@ require (
 	github.com/prometheus/client_golang v1.12.1
 	github.com/segmentio/kafka-go v0.4.38
 	github.com/spf13/cobra v1.6.1
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	github.com/syndtr/goleveldb v1.0.0
 	google.golang.org/protobuf v1.28.1
 	mvdan.cc/gofumpt v0.4.0
