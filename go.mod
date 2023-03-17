@@ -6,14 +6,14 @@ require (
 	github.com/gofiber/fiber/v2 v2.42.0
 	github.com/golang/mock v1.7.0-rc.1
 	github.com/golangci/golangci-lint v1.51.2
-	github.com/ionos-cloud/v8go-polyfills v0.0.0-20230228195223-e573af88e3fd
+	github.com/ionos-cloud/v8go-polyfills v0.0.0-20230305194412-10058ed6bd3e
 	github.com/katallaxie/pkg v0.5.1-0.20230222193335-191843018470
 	github.com/prometheus/client_golang v1.12.1
 	github.com/segmentio/kafka-go v0.4.39
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.2
 	github.com/syndtr/goleveldb v1.0.0
-	google.golang.org/protobuf v1.28.1
+	google.golang.org/protobuf v1.30.0
 	mvdan.cc/gofumpt v0.4.0
 	rogchap.com/v8go v0.8.0
 )
@@ -90,6 +90,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/hexops/gotextdiff v1.0.3 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
+	github.com/ionos-cloud/v8go v0.8.1 // indirect
 	github.com/jgautheron/goconst v1.5.1 // indirect
 	github.com/jingyugao/rowserrcheck v1.1.1 // indirect
 	github.com/jirfag/go-printf-func-name v0.0.0-20200119135958-7558a9eaa5af // indirect
