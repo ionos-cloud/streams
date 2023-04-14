@@ -15,7 +15,7 @@ require (
 	github.com/syndtr/goleveldb v1.0.0
 	google.golang.org/protobuf v1.30.0
 	mvdan.cc/gofumpt v0.4.0
-	rogchap.com/v8go v0.8.0
+	rogchap.com/v8go v0.9.0
 )
 
 require (
