@@ -3,13 +3,13 @@
 package mock
 
 import (
-	streams "github.com/katallaxie/streams"
-	msg "github.com/katallaxie/streams/msg"
+	streams "github.com/ionos-cloud/streams"
+	msg "github.com/ionos-cloud/streams/msg"
 	"sync"
 )
 
 // MockSource is a mock implementation of the Source interface (from the
-// package github.com/katallaxie/streams) used for unit testing.
+// package github.com/ionos-cloud/streams) used for unit testing.
 type MockSource[K interface{}, V interface{}] struct {
 	// CommitFunc is an instance of a mock function object controlling the
 	// behavior of the method Commit.

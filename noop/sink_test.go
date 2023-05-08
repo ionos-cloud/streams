@@ -3,7 +3,7 @@ package noop
 import (
 	"testing"
 
-	"github.com/katallaxie/streams/msg"
+	"github.com/ionos-cloud/streams/msg"
 	"github.com/stretchr/testify/assert"
 )
 

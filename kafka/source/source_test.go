@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/katallaxie/streams/codec"
+	"github.com/ionos-cloud/streams/codec"
 	kgo "github.com/segmentio/kafka-go"
 
 	"github.com/stretchr/testify/assert"

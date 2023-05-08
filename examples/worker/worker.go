@@ -6,12 +6,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/katallaxie/streams"
-	"github.com/katallaxie/streams/codec"
-	pb "github.com/katallaxie/streams/examples/producer/proto"
-	"github.com/katallaxie/streams/kafka/reader"
-	"github.com/katallaxie/streams/kafka/source"
-	"github.com/katallaxie/streams/msg"
+	"github.com/ionos-cloud/streams"
+	"github.com/ionos-cloud/streams/codec"
+	pb "github.com/ionos-cloud/streams/examples/producer/proto"
+	"github.com/ionos-cloud/streams/kafka/reader"
+	"github.com/ionos-cloud/streams/kafka/source"
+	"github.com/ionos-cloud/streams/msg"
 	"google.golang.org/protobuf/proto"
 
 	v8 "github.com/katallaxie/v8go"

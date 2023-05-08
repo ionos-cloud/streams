@@ -1,4 +1,4 @@
-module github.com/katallaxie/streams
+module github.com/ionos-cloud/streams
 
 go 1.20
 

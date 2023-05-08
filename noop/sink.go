@@ -1,8 +1,8 @@
 package noop
 
 import (
-	"github.com/katallaxie/streams"
-	"github.com/katallaxie/streams/msg"
+	"github.com/ionos-cloud/streams"
+	"github.com/ionos-cloud/streams/msg"
 )
 
 var _ streams.Sink[any, any] = (*Sink[any, any])(nil)
