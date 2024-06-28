@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # :surfing_woman: Streams
 
 [![Release](https://github.com/ionos-cloud/streams/actions/workflows/main.yml/badge.svg)](https://github.com/ionos-cloud/streams/actions/workflows/main.yml)
